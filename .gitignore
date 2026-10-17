@@ -1,0 +1,8 @@
+# Build output
+*.o
+*.exe
+*.layout
+*.zip
+
+# Dev-C++ / gprof artefacts
+gmon.out
