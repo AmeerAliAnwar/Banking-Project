@@ -60,18 +60,19 @@ Two things to keep in mind when running:
 ├── Makefile.win             Dev-C++ generated makefile
 ├── database.txt             account records appended by "Add account"
 ├── employeedatabase.txt     employee records appended by "Add employee"
-├── *.wav                    46 voice prompts used throughout the program
+├── *.wav                    43 audio prompts, 42 of them played by the current build
 ├── HASH_CODE_ALGORITHM.md   how the hash-code lookup works
 └── OOP/                     object-oriented rewrite of the same banking system
 ```
 
-The two `*.cpp` prototypes are kept for reference. They define their own `main`, `LOWER` and `TALK`, so they are compiled separately from the main program, not together with it.
+The two `*.cpp` prototypes are kept for reference. They define their own `main`, `LOWER` and `TALK`, so they are compiled separately from the main program, not together with it. Both are kept exactly as written, which includes two audio references that do not resolve: `chatbot.cpp` loads `hello.wav` and `FinVirBOT.cpp` loads `hi.wav.wav`, while this folder holds `hellouser.wav` and `hi.wav`.
 
 ## Notes on the data
 
 - The 16 accounts reachable through the tree are hard-coded inside the source as demo records: six client accounts and ten employee accounts. There is no account file behind the login; `database.txt` only receives new records written by option 2.
 - `BANKING project.cpp` (13,226 lines) is an earlier draft of the program preserved as comments. It compiles to an empty object file and is listed in the project only to keep it visible in the IDE.
-- The employee attendance tree is unfinished: its branch tests use `=` where `==` was intended, and only the first row of the employee roster builds a hash code. The object-oriented version in `OOP/` replaces this tree with a small conversion function.
+- The employee attendance tree is unfinished: its branch tests use `=` where `==` was intended, and only the first row of the employee roster builds a hash code. The object-oriented version in `OOP/` drops this tree and looks accounts up by CNIC in a `vector` instead.
+- Three audio files that no source file references were removed after the first import: `Cexchange (1).wav` (a byte-identical copy of `Cexchange.wav`), `currincies.wav` and `serve.wav`. The 43 files that remain are the 42 prompts `Untitled2.cpp` plays, plus `Cexchange.wav`, which no `PlaySound` call in this folder names; it is kept as it came with the project.
 
 ## Object-oriented version
 
