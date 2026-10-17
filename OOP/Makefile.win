@@ -1,0 +1,43 @@
+# Project: BankingSystem
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Account.o BankSystem.o Criminal.o Employee.o Transaction.o
+LINKOBJ  = main.o Account.o BankSystem.o Criminal.o Employee.o Transaction.o
+LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib32" -static-libgcc -m32 -pg
+INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = BankingSystem.exe
+CXXFLAGS = $(CXXINCS) -m32 -pg
+CFLAGS   = $(INCS) -m32 -pg
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Account.o: Account.cpp
+	$(CPP) -c Account.cpp -o Account.o $(CXXFLAGS)
+
+BankSystem.o: BankSystem.cpp
+	$(CPP) -c BankSystem.cpp -o BankSystem.o $(CXXFLAGS)
+
+Criminal.o: Criminal.cpp
+	$(CPP) -c Criminal.cpp -o Criminal.o $(CXXFLAGS)
+
+Employee.o: Employee.cpp
+	$(CPP) -c Employee.cpp -o Employee.o $(CXXFLAGS)
+
+Transaction.o: Transaction.cpp
+	$(CPP) -c Transaction.cpp -o Transaction.o $(CXXFLAGS)
